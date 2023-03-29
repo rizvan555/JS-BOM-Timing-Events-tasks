@@ -7,11 +7,11 @@ function catWalk() {
   catWalkInterval = setInterval(() => {
     leftPosition += 10;
     cat.style.left = leftPosition + "px";
-    if (leftPosition < window.innerWidth) {
-      clearInterval(catWalkInterval);
-      cat.style.left = leftPosition + "px";
-    }
   }, 500);
+  if (leftPosition >= window.innerWidth) {
+    clearInterval(catWalkInterval);
+    cat.style.left = leftPosition + "px";
+  }
 }
 
 function pause() {
@@ -31,9 +31,9 @@ function catSpeed() {
   catWalkInterval = setInterval(() => {
     leftPosition += 100;
     cat.style.left = leftPosition + "px";
-    if (leftPosition < window.innerWidth) {
-      clearInterval(catWalkInterval);
+    if (leftPosition >= window.innerWidth) {
       cat.style.left = leftPosition + "px";
+      clearInterval(catWalkInterval);
     }
   }, 100);
 }
